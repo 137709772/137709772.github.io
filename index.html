@@ -188,37 +188,17 @@
 <p> 所以spring security增加如下配置：允许所有options访问</p>
 </li>
 </ol>
-<p><code>java
-httpSecurity
-.authorizeRequests()
-.antMatchers(HttpMethod.OPTIONS, &quot;/**&quot;).permitAll()</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">httpSecurity</div><div class="line">.authorizeRequests()</div><div class="line">.antMatchers(HttpMethod.OPTIONS, <span class="string">"/**"</span>).permitAll()</div></pre></td></tr></table></figure>
 <h2 id="spring-security"><a href="#spring-security" class="headerlink" title="spring security"></a>spring security</h2><h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><p>方法返回信息</p>
-<p><code>json
-{
-  &quot;code&quot;: &quot;SI0000&quot;,
-  &quot;msg&quot;: &quot;操作成功！&quot;,
-  &quot;response&quot;: {
-    &quot;userId&quot;: 10000,
-    &quot;username&quot;: &quot;admin&quot;,
-    &quot;password&quot;: &quot;123456&quot;,
-    &quot;unameType&quot;: &quot;PU_TONG&quot;,
-    &quot;userType&quot;: &quot;ADMIN&quot;,
-    &quot;createTime&quot;: &quot;2017-05-12T03:09:04Z&quot;,
-    &quot;updateTime&quot;: &quot;2017-05-12T03:09:04Z&quot;,
-    &quot;enable&quot;: &quot;1&quot;,
-    &quot;roles&quot;: null
-  },
-  &quot;resType&quot;: &quot;obj&quot;
-}</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"code"</span>: <span class="string">"SI0000"</span>,</div><div class="line">  <span class="attr">"msg"</span>: <span class="string">"操作成功！"</span>,</div><div class="line">  <span class="attr">"response"</span>: &#123;</div><div class="line">    <span class="attr">"userId"</span>: <span class="number">10000</span>,</div><div class="line">    <span class="attr">"username"</span>: <span class="string">"admin"</span>,</div><div class="line">    <span class="attr">"password"</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">"unameType"</span>: <span class="string">"PU_TONG"</span>,</div><div class="line">    <span class="attr">"userType"</span>: <span class="string">"ADMIN"</span>,</div><div class="line">    <span class="attr">"createTime"</span>: <span class="string">"2017-05-12T03:09:04Z"</span>,</div><div class="line">    <span class="attr">"updateTime"</span>: <span class="string">"2017-05-12T03:09:04Z"</span>,</div><div class="line">    <span class="attr">"enable"</span>: <span class="string">"1"</span>,</div><div class="line">    <span class="attr">"roles"</span>: <span class="literal">null</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"resType"</span>: <span class="string">"obj"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ol>
-<li><p>@PostAuthorize 方法执行后再进行权限验证。</p>
-<pre><code>el表达式 返回信息中的用户名和登录人用户名相等。或者拥有ADMIN角色
-(&quot;returnObject.response.username == principal.username or hasRole(&apos;ROLE_ADMIN&apos;)&quot;)
-</code></pre></li>
-<li><p>@PreAuthorize 进入方法前的权限验证</p>
-<pre><code>@PreAuthorize(&quot;hasRole(&apos;ADMIN&apos;) AND hasRole(&apos;DBA&apos;)&quot;)
-</code></pre></li>
+<li>@PostAuthorize 方法执行后再进行权限验证。</li>
 </ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">el表达式 返回信息中的用户名和登录人用户名相等。或者拥有ADMIN角色</div><div class="line">(<span class="string">"returnObject.response.username == principal.username or hasRole('ROLE_ADMIN')"</span>)</div></pre></td></tr></table></figure>
+<ol>
+<li>@PreAuthorize 进入方法前的权限验证</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@PreAuthorize</span>(<span class="string">"hasRole('ADMIN') AND hasRole('DBA')"</span>)</div></pre></td></tr></table></figure>
 
       
 
