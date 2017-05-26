@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>xLuobo的博客</title>
+  <title>Tag: markdown | xLuobo的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="今日复明日，明日何其多。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="xLuobo的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/markdown/index.html">
 <meta property="og:site_name" content="xLuobo的博客">
 <meta property="og:description" content="今日复明日，明日何其多。">
 <meta name="twitter:card" content="summary">
@@ -158,185 +158,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-base64 HmacSHA512加密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/26/base64 HmacSHA512加密/">base64 HmacSHA512加密</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/26/base64 HmacSHA512加密/" class="archive-article-date">
-  	<time datetime="2017-05-26T04:32:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-26</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="java-代码如下"><a href="#java-代码如下" class="headerlink" title="java 代码如下"></a>java 代码如下</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String secret = <span class="string">"123456"</span>;<span class="comment">//加密key</span></div><div class="line">String message = <span class="string">"123456"</span>;<span class="comment">//需要加密的字符串</span></div><div class="line"></div><div class="line"><span class="comment">//base64 HmacSHA512加密</span></div><div class="line">Mac sha256_HMAC = Mac.getInstance(<span class="string">"HmacSHA512"</span>);</div><div class="line">SecretKeySpec secret_key = <span class="keyword">new</span> SecretKeySpec(secret.getBytes(), <span class="string">"HmacSHA512"</span>);</div><div class="line">sha256_HMAC.init(secret_key);</div><div class="line">String hash = Base64.encodeBase64String(sha256_HMAC.doFinal(message.getBytes()));</div><div class="line">System.out.println(hash);</div></pre></td></tr></table></figure>
-<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><p>js 需要使用 crypto </p>
-<p>crypto-js.js 下载地址为：链接: <a href="https://pan.baidu.com/s/1pL7Dl6V" target="_blank" rel="external">https://pan.baidu.com/s/1pL7Dl6V</a> 密码: 8ycm</p>
-<p>github 地址为： <a href="https://github.com/brix/crypto-js.git" target="_blank" rel="external">github crypto</a><br>    github上的文件是分开的（具体后续再研究，如有了解的，欢迎发送邮件指导： <a href="xLuobo@foxmail.com">邮箱:xLuobo@foxmail.com</a>）</p>
-<h3 id="nodejs代码如下："><a href="#nodejs代码如下：" class="headerlink" title="nodejs代码如下："></a>nodejs代码如下：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> crypto = <span class="built_in">require</span>(<span class="string">'crypto'</span>);</div><div class="line"><span class="built_in">console</span>.log(crypto.createHmac(<span class="string">'SHA512'</span>,<span class="string">'123456'</span>).update(<span class="string">'123456'</span>).digest(<span class="string">'hex'</span>))</div><div class="line"><span class="built_in">console</span>.log(crypto.createHmac(<span class="string">'SHA512'</span>,<span class="string">'123456'</span>).update(<span class="string">'123456'</span>).digest(<span class="string">'base64'</span>))</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">"abc key:abc result:"</span>+crypto.createHmac(<span class="string">'SHA1'</span>,<span class="string">'abc'</span>).update(<span class="string">'abc'</span>).digest(<span class="string">'base64'</span>))</div></pre></td></tr></table></figure>
-<h3 id="javascript-代码如下："><a href="#javascript-代码如下：" class="headerlink" title="javascript 代码如下："></a>javascript 代码如下：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"crypto-js.js"</span>&gt;&lt;/script&gt;<span class="comment">//应用js</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> result = CryptoJS.HmacSHA512(<span class="string">"abc"</span>,<span class="string">"abc"</span>).toString(CryptoJS.enc.Base64)</div><div class="line"><span class="built_in">console</span>.log(result)<span class="comment">//打印加密结果</span></div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/26/base64 HmacSHA512加密/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-nginx配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/19/nginx配置/">nginx 配置</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/19/nginx配置/" class="archive-article-date">
-  	<time datetime="2017-05-19T07:03:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="域名重定向"><a href="#域名重定向" class="headerlink" title="域名重定向"></a>域名重定向</h2><p>pay.abc.com 域名重定向到服务器 112.112.112.112的8080端口。</p>
-<p>abc.com域名及其其他二级域名都会重定向到 服务器111.111.111.111的8080”。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">upstream pay_abc&#123;</div><div class="line">    server 112.112.112.112:8080;</div><div class="line">&#125;</div><div class="line">server &#123;</div><div class="line">    listen       80;</div><div class="line">    server_name  pay.abc.com;</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        root   html;</div><div class="line">        index  index.html index.htm;</div><div class="line">        proxy_pass   http://pay_abc;</div><div class="line">        client_max_body_size 100m;</div><div class="line">        proxy_set_header Host $host;</div><div class="line">        proxy_set_header X-Real-IP $remote_addr;</div><div class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#abc.com 域名及其所有二级域名都会重定向到“111.111.111.111:8080”</div><div class="line"></div><div class="line">upstream abc&#123;</div><div class="line">    server 111.111.111.111:8080;</div><div class="line">&#125;</div><div class="line">server &#123;</div><div class="line">    listen       80;</div><div class="line">    server_name  abc.com *.abc.com;#</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        root   html;</div><div class="line">        index  index.html index.htm;</div><div class="line">        proxy_pass   http://abc;</div><div class="line">        client_max_body_size 100m;</div><div class="line">        proxy_set_header Host $host;</div><div class="line">        proxy_set_header X-Real-IP $remote_addr;</div><div class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="静态资源服务器"><a href="#静态资源服务器" class="headerlink" title="静态资源服务器"></a>静态资源服务器</h2><p>域名为static.abc.com，访问静态资源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen       80;</div><div class="line">    server_name  static.abc.com;#</div><div class="line">    </div><div class="line">    location ~ .*\.(html|htm|gif|jpg|jpeg|bmp|png|ico|txt|js|css|eot|ttf|woff|svg|otf|woff2)$ &#123;</div><div class="line">        add_header Access-Control-Allow-Origin *;</div><div class="line">        root path;#静态资源路径</div><div class="line">        expires 24h;#缓存时间 单位 h:小时,d:天</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/19/nginx配置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-MarkDown Editing 快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/18/MarkDown Editing 快捷键/">MarkDown Editing 快捷键</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/18/MarkDown Editing 快捷键/" class="archive-article-date">
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/05/18/MarkDown Editing 快捷键/" class="archive-article-date">
   	<time datetime="2017-05-18T07:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-18</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>输入 “mdi + tab” 会自动插入下面的图片标记</p>
-<p><img src="/path/to/img.jpg" alt="Alt text" title="Optional title"></p>
-<p>输入 “mdl + tab” 会自动生成下面的链接标记</p>
-<p><a href="link"></a></p>
-<p>输入 “mdl + tab” 会自动生成下面的mark标记</p>
-<p><mark>mark</mark></p>
-<p><em>或_之间的文字会变成 斜体，*</em>或__之间的文件会变成 加粗。 </p>
-<p><em>斜体</em></p>
-<p><strong>粗体</strong></p>
-<p>-、+、*都能表示列表，要注意的是 前后都要有空行：</p>
-<ul>
-<li>a</li>
-<li>b</li>
-<li>c<ul>
-<li>d<ul>
-<li>f<ul>
-<li>g</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><code>s</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/05/18/MarkDown Editing 快捷键/">MarkDown Editing 快捷键</a>
+    </h1>
+  
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -348,178 +197,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/18/MarkDown Editing 快捷键/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
   
-    <article id="post-零碎知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/18/零碎知识点/">零碎知识点</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/18/零碎知识点/" class="archive-article-date">
-  	<time datetime="2017-05-18T07:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="零碎知识点"><a href="#零碎知识点" class="headerlink" title="零碎知识点"></a>零碎知识点</h1><h1 id="xLuobo-progect"><a href="#xLuobo-progect" class="headerlink" title="xLuobo progect"></a>xLuobo progect</h1><h2 id="javax-persistence-包"><a href="#javax-persistence-包" class="headerlink" title="javax.persistence 包"></a>javax.persistence 包</h2><ol>
-<li>使用 <a href="https://github.com/abel533/Mapper" target="_blank" rel="external">https://github.com/abel533/Mapper 通用Mapper</a>时，在向通用的实体类总增加属性时，需要用@Transient描述该属性。</li>
-</ol>
-<pre><code>@Transient 
-    the property or field is not persistent
-</code></pre><h2 id="spring-security，swagger"><a href="#spring-security，swagger" class="headerlink" title="spring security，swagger"></a>spring security，swagger</h2><ol>
-<li><p>在使用swagger-ui时，当RestApi head中需要api_key时，swagger将首先发送options请求，之后发送post请求。options请求head中无法加入自动加入api_key，如果不允许所有options请求通过，将无法调用api。</p>
-<p> 所以spring security增加如下配置：允许所有options访问</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">httpSecurity</div><div class="line">.authorizeRequests()</div><div class="line">.antMatchers(HttpMethod.OPTIONS, <span class="string">"/**"</span>).permitAll()</div></pre></td></tr></table></figure>
-<h2 id="spring-security"><a href="#spring-security" class="headerlink" title="spring security"></a>spring security</h2><h3 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h3><p>方法返回信息</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"code"</span>: <span class="string">"SI0000"</span>,</div><div class="line">  <span class="attr">"msg"</span>: <span class="string">"操作成功！"</span>,</div><div class="line">  <span class="attr">"response"</span>: &#123;</div><div class="line">    <span class="attr">"userId"</span>: <span class="number">10000</span>,</div><div class="line">    <span class="attr">"username"</span>: <span class="string">"admin"</span>,</div><div class="line">    <span class="attr">"password"</span>: <span class="string">"123456"</span>,</div><div class="line">    <span class="attr">"unameType"</span>: <span class="string">"PU_TONG"</span>,</div><div class="line">    <span class="attr">"userType"</span>: <span class="string">"ADMIN"</span>,</div><div class="line">    <span class="attr">"createTime"</span>: <span class="string">"2017-05-12T03:09:04Z"</span>,</div><div class="line">    <span class="attr">"updateTime"</span>: <span class="string">"2017-05-12T03:09:04Z"</span>,</div><div class="line">    <span class="attr">"enable"</span>: <span class="string">"1"</span>,</div><div class="line">    <span class="attr">"roles"</span>: <span class="literal">null</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"resType"</span>: <span class="string">"obj"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li>@PostAuthorize 方法执行后再进行权限验证。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">el表达式 返回信息中的用户名和登录人用户名相等。或者拥有ADMIN角色</div><div class="line">(<span class="string">"returnObject.response.username == principal.username or hasRole('ROLE_ADMIN')"</span>)</div></pre></td></tr></table></figure>
-<ol>
-<li>@PreAuthorize 进入方法前的权限验证</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@PreAuthorize</span>(<span class="string">"hasRole('ADMIN') AND hasRole('DBA')"</span>)</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/18/零碎知识点/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-js工具类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/12/js工具类/">js工具类</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/12/js工具类/" class="archive-article-date">
-  	<time datetime="2017-05-12T01:24:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>js文件: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h2 id="根据KB获取流量值"><a href="#根据KB获取流量值" class="headerlink" title="根据KB获取流量值"></a>根据KB获取流量值</h2><p>将KB为单位的流量，转换为MB、GB单位的流量</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">formatFlow: function (flowKB) &#123;</div><div class="line">	var flowMB = Math.floor(flowKB / <span class="number">1024</span> * <span class="number">100</span>) / <span class="number">100</span>;</div><div class="line">	<span class="keyword">if</span> (flowMB &gt; <span class="number">500</span>) &#123;</div><div class="line">		var flowGB = Math.floor(flowKB / <span class="number">1024</span> / <span class="number">1024</span> * <span class="number">100</span>) / <span class="number">100</span>;</div><div class="line">		<span class="keyword">return</span> flowGB + <span class="string">"G"</span>;</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		<span class="keyword">return</span> flowMB + <span class="string">"M"</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="javascript-Date对象-格式化"><a href="#javascript-Date对象-格式化" class="headerlink" title="javascript Date对象 格式化"></a>javascript Date对象 格式化</h2><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Date.prototype.Format = function (fmt) &#123; <span class="comment">//author: meizz</span></div><div class="line">	var o = &#123;</div><div class="line">	    <span class="string">"M+"</span>: <span class="keyword">this</span>.getMonth() + <span class="number">1</span>, <span class="comment">//月份</span></div><div class="line">	    <span class="string">"d+"</span>: <span class="keyword">this</span>.getDate(), <span class="comment">//日</span></div><div class="line">	    <span class="string">"h+"</span>: <span class="keyword">this</span>.getHours(), <span class="comment">//小时</span></div><div class="line">	    <span class="string">"m+"</span>: <span class="keyword">this</span>.getMinutes(), <span class="comment">//分</span></div><div class="line">	    <span class="string">"s+"</span>: <span class="keyword">this</span>.getSeconds(), <span class="comment">//秒</span></div><div class="line">	    <span class="string">"q+"</span>: Math.floor((<span class="keyword">this</span>.getMonth() + <span class="number">3</span>) / <span class="number">3</span>), <span class="comment">//季度</span></div><div class="line">	    <span class="string">"S"</span>: <span class="keyword">this</span>.getMilliseconds() <span class="comment">//毫秒</span></div><div class="line">	&#125;;</div><div class="line">	<span class="keyword">if</span> (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$<span class="number">1</span>, (<span class="keyword">this</span>.getFullYear() + <span class="string">""</span>).substr(<span class="number">4</span> - RegExp.$<span class="number">1</span>.length));</div><div class="line">	<span class="keyword">for</span> (var k in o)</div><div class="line">	    <span class="keyword">if</span> (<span class="keyword">new</span> RegExp(<span class="string">"("</span> + k + <span class="string">")"</span>).test(fmt)) fmt = fmt.replace(RegExp.$<span class="number">1</span>, (RegExp.$<span class="number">1</span>.length == <span class="number">1</span>) ? (o[k]) : ((<span class="string">"00"</span> + o[k]).substr((<span class="string">""</span> + o[k]).length)));</div><div class="line">	<span class="keyword">return</span> fmt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var date = <span class="keyword">new</span> Date().Format(<span class="string">'yyyy-MM-dd hh:mm:ss'</span>);</div></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javascript/" class="article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/12/js工具类/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-  
 
 
           </div>
@@ -541,10 +231,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
